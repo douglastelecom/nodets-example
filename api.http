@@ -1,0 +1,37 @@
+@host = http://localhost:8081
+@baseUrl = {{host}}/api/v1
+@contentType = application/json
+
+###
+GET {{host}}
+Content-Type: {{contentType}}
+
+###
+GET {{host}}/healthcheck
+Content-Type: {{contentType}}
+
+###
+POST {{baseUrl}}/todos
+Content-Type: {{contentType}}
+
+{
+    "task": "task to do",
+    "description": "aqui vai uma descrição"
+}
+
+###
+GET {{baseUrl}}/todos
+Content-Type: {{contentType}}
+
+###
+GET {{baseUrl}}/todos/123
+Content-Type: {{contentType}}
+
+###
+PATCH  {{baseUrl}}/todos/123
+Content-Type: {{contentType}}
+
+###
+DELETE  {{baseUrl}}/todos/123
+Content-Type: {{contentType}}
+
