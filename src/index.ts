@@ -1,8 +1,9 @@
-import express, {Request, Response} from 'express';
+import express, {Request, Response, NextFunction} from 'express';
 import {createServer} from 'http';
 import "dotenv/config";
 import { db } from "./db/db"
 import { todos } from 'db/schema';
+import { ErrorHandler}  from 'utils';
 
 const app = express();
 
@@ -47,6 +48,10 @@ app.patch("/api/v1/todos/:id", (req: Request, res: Response)=>{
 app.delete("/api/v1/todos/:id", (req: Request, res: Response)=>{
     res.send("DELETE TODO BY ID");
 });
+
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+    
+})
 
 const server = createServer(app);
 
